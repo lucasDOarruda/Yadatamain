@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yadata-navy: #0f172a;
+  --color-yadata-slate: #1e293b;
+  --color-yadata-blue: #2563eb;
+  --color-yadata-cyan: #22d3ee;
+  --font-enterprise: "Inter", sans-serif;
+}
+
+:root {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-enterprise);
+}

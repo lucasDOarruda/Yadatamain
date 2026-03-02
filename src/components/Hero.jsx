@@ -2,39 +2,58 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section className="relative min-height-[90vh] flex items-center pt-20 overflow-hidden bg-yadata-navy">
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-yadata-blue/10 rounded-full blur-3xl opacity-50"></div>
-            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-yadata-cyan/5 rounded-full blur-3xl opacity-30"></div>
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-yadata-navy">
+            {/* Background Dot Grid */}
+            <div className="absolute inset-0 bg-dot-grid opacity-20"></div>
 
-            {/* Grid Pattern */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+            {/* Abstract Flow Lines (Right Side) */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-10 pointer-events-none hidden lg:block">
+                <svg viewBox="0 0 800 600" className="w-full h-full">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="transparent" />
+                            <stop offset="50%" stopColor="white" />
+                            <stop offset="100%" stopColor="transparent" />
+                        </linearGradient>
+                    </defs>
+                    {/* Animated Path 1 */}
+                    <path d="M0,100 Q200,50 400,100 T800,100" fill="none" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="200 800">
+                        <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="15s" repeatCount="indefinite" />
+                    </path>
+                    {/* Animated Path 2 */}
+                    <path d="M0,300 Q200,350 400,300 T800,300" fill="none" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="300 700">
+                        <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="20s" repeatCount="indefinite" />
+                    </path>
+                    {/* Animated Path 3 */}
+                    <path d="M0,500 Q200,450 400,500 T800,500" fill="none" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="150 850">
+                        <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="12s" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="max-w-3xl">
-                    <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-yadata-blue/10 border border-yadata-blue/20 mb-6">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yadata-blue opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-yadata-blue"></span>
-                        </span>
-                        <span className="text-xs font-semibold uppercase tracking-widest text-yadata-blue">Digital Infrastructure Group</span>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
+                <div className="reveal active">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-yadata-steel/10 border border-yadata-steel/20 mb-8">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-yadata-steel">Operational Technology for Trade</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-                        Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Unified Infrastructure</span> for Global Trade
+                    <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+                        Building the <br />
+                        <span className="text-yadata-steel">System Behind</span> <br />
+                        Your Business.
                     </h1>
 
-                    <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-                        Yadata Pty Ltd is a technology holding company developing scalable platforms across logistics execution and digital ecosystems.
+                    <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl font-light">
+                        We design and build custom software, platforms, and operational systems that power imports, exports, logistics, and modern startups.
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                        <button className="bg-white text-yadata-navy hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-transform hover:-translate-y-1 shadow-xl">
+                        <button className="premium-button bg-white text-yadata-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest">
                             Explore Our Platforms
                         </button>
                         <a
-                            href="mailto:lucas.arrudamiles@icloud.com"
-                            className="bg-transparent text-white border border-white/20 hover:bg-white/5 px-8 py-4 rounded-lg font-bold text-lg transition-all text-center"
+                            href="mailto:contactYadata@gmail.com"
+                            className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
                         >
                             Partner With Us
                         </a>

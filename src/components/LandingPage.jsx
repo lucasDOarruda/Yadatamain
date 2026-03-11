@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from './Hero';
+import ATTConsulting from './ATTConsulting';
 import WhatWeDo from './WhatWeDo';
 import Industries from './Industries';
 import TinyGlobal from './TinyGlobal';
@@ -16,7 +17,12 @@ const LandingPage = () => {
                 <Hero />
             </section>
 
-            {/* Block 2: What We Do (Charcoal) */}
+            {/* Block 2: ATT Consulting (Navy) */}
+            <section className="bg-yadata-navy reveal">
+                <ATTConsulting />
+            </section>
+
+            {/* Block 3: What We Do (Charcoal) */}
             <section className="bg-yadata-charcoal reveal">
                 <WhatWeDo />
             </section>

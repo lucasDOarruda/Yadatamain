@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from './Hero';
 import ATTConsulting from './ATTConsulting';
 import WhatWeDo from './WhatWeDo';
@@ -11,6 +11,15 @@ import PartnerWithUs from './PartnerWithUs';
 
 const LandingPage = () => {
     useScrollReveal();
+
+    const [isPartnerModalOpen, setPartnerModalOpen] = useState(false);
+
+    useEffect(() => {
+        const handleOpenModal = () => setPartnerModalOpen(true);
+        window.addEventListener('openPartnerModal', handleOpenModal);
+        
+        return () => window.removeEventListener('openPartnerModal', handleOpenModal);
+    }, []);
 
     return (
         <div className="bg-yadata-navy overflow-hidden">
@@ -44,10 +53,8 @@ const LandingPage = () => {
                 <WhyYadata />
             </section>
 
-            {/* Block 6: Partner With Us (Navy) */}
-            <section className="bg-yadata-navy reveal">
-                <PartnerWithUs />
-            </section>
+            {/* Partner With Us Modal Overlay */}
+            <PartnerWithUs isOpen={isPartnerModalOpen} onClose={() => setPartnerModalOpen(false)} />
         </div>
     );
 };

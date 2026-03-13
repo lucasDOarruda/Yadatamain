@@ -51,12 +51,12 @@ const ATTConsulting = () => {
                             >
                                 Learn More
                             </button>
-                            <a
-                                href="mailto:contact@yadata.com.au"
+                            <button
+                                onClick={() => window.dispatchEvent(new Event('openPartnerModal'))}
                                 className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
                             >
                                 Partner With Us
-                            </a>
+                            </button>
                         </div>
 
                         {/* Square Image Preview */}

@@ -52,7 +52,7 @@ const ATTConsulting = () => {
                                 Learn More
                             </button>
                             <a
-                                href="mailto:contactYadata@gmail.com"
+                                href="mailto:contact@yadata.com.au"
                                 className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
                             >
                                 Partner With Us

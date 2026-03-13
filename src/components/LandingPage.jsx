@@ -7,6 +7,8 @@ import TinyGlobal from './TinyGlobal';
 import WhyYadata from './Values';
 import useScrollReveal from '../hooks/useScrollReveal';
 
+import PartnerWithUs from './PartnerWithUs';
+
 const LandingPage = () => {
     useScrollReveal();
 
@@ -40,6 +42,11 @@ const LandingPage = () => {
             {/* Block 5: Why Yadata (Charcoal) */}
             <section className="bg-yadata-charcoal reveal">
                 <WhyYadata />
+            </section>
+
+            {/* Block 6: Partner With Us (Navy) */}
+            <section className="bg-yadata-navy reveal">
+                <PartnerWithUs />
             </section>
         </div>
     );

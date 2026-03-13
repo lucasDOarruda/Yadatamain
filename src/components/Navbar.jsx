@@ -89,12 +89,13 @@ const Navbar = () => {
                                 >
                                     The Founder
                                 </Link>
-                                <a
-                                    href="mailto:contactYadata@gmail.com"
+                                <Link
+                                    to="/#partner"
+                                    onClick={(e) => scrollToSection(e, 'partner')}
                                     className="premium-button bg-white text-yadata-navy px-6 py-2.5 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-gray-100"
                                 >
                                     Partner With Us
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -145,12 +146,13 @@ const Navbar = () => {
                     </Link>
                     <div className={`pt-8 transition-all duration-500 delay-[400ms] ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}>
-                        <a
-                            href="mailto:contactYadata@gmail.com"
+                        <Link
+                            to="/#partner"
+                            onClick={(e) => scrollToSection(e, 'partner')}
                             className="inline-block bg-white text-yadata-navy px-10 py-4 rounded-sm text-sm font-bold uppercase tracking-[0.3em] shadow-2xl hover:bg-yadata-steel transition-colors"
                         >
                             Partner With Us
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

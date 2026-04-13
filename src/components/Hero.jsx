@@ -1,8 +1,9 @@
 import React from 'react';
+import Footer from './Footer';
 
 const Hero = ({ onNext }) => {
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-yadata-navy">
+        <section className="hero relative overflow-hidden bg-yadata-navy w-full">
             {/* Background Dot Grid */}
             <div className="absolute inset-0 bg-dot-grid opacity-20"></div>
 
@@ -31,38 +32,42 @@ const Hero = ({ onNext }) => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
-                <div className="reveal active">
-                    <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-yadata-steel/10 border border-yadata-steel/20 mb-8">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-yadata-steel">Operational Technology for Trade</span>
-                    </div>
+            <div className="flex-1 flex items-center w-full">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="reveal active">
+                        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-yadata-steel/10 border border-yadata-steel/20 mb-8">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-yadata-steel">Operational Technology for Trade</span>
+                        </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
-                        Building the <br />
-                        <span className="text-yadata-steel">System Behind</span> <br />
-                        Your Business.
-                    </h1>
+                        <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+                            Building the <br />
+                            <span className="text-yadata-steel">System Behind</span> <br />
+                            Your Business.
+                        </h1>
 
-                    <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl font-light">
-                        We design and build custom software, platforms, and operational systems that power imports, exports, logistics, and modern startups.
-                    </p>
+                        <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl font-light">
+                            We design and build custom software, platforms, and operational systems that power imports, exports, logistics, and modern startups.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                        <button 
-                            onClick={onNext}
-                            className="premium-button bg-white text-yadata-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest"
-                        >
-                            Explore Our Platforms
-                        </button>
-                        <button
-                            onClick={() => window.dispatchEvent(new Event('openPartnerModal'))}
-                            className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
-                        >
-                            Partner With Us
-                        </button>
+                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                            <button 
+                                onClick={onNext}
+                                className="premium-button bg-white text-yadata-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest"
+                            >
+                                Explore Our Platforms
+                            </button>
+                            <button
+                                onClick={() => window.dispatchEvent(new Event('openPartnerModal'))}
+                                className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
+                            >
+                                Partner With Us
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </section>
     );
 };

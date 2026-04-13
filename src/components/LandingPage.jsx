@@ -48,7 +48,7 @@ const LandingPage = () => {
                 {steps.map((step, index) => (
                     <div 
                         key={step.id} 
-                        className="flex-shrink-0 min-h-screen relative"
+                        className="flex-shrink-0 min-h-0 relative"
                         style={{ width: '100vw' }}
                     >
                         {/* Step Indicator */}

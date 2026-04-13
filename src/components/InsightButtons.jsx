@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const Modal = ({ isOpen, onClose, title, children }) => {
     useEffect(() => {
@@ -9,18 +10,19 @@ const Modal = ({ isOpen, onClose, title, children }) => {
 
     if (!isOpen) return null;
 
-    return (
+    return createPortal(
         <div 
-            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[100] p-4 animate-fade-in"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-[200] p-4 animate-fade-in"
             onClick={onClose}
         >
             <div 
-                className="bg-yadata-navy border border-white/10 max-w-4xl w-full rounded-sm p-8 md:p-12 relative max-h-[90vh] overflow-y-auto"
+                className="bg-yadata-navy border border-white/10 max-w-4xl w-full rounded-sm p-8 md:p-12 relative max-h-[90vh] overflow-y-auto shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button 
                     onClick={onClose}
-                    className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+                    className="absolute top-8 right-8 text-white/40 hover:text-white transition-colors bg-white/5 p-4 rounded-full z-50 hover:bg-white/10"
+                    aria-label="Close modal"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -38,7 +40,8 @@ const Modal = ({ isOpen, onClose, title, children }) => {
                     animation: fade-in 0.3s ease-out forwards;
                 }
             `}</style>
-        </div>
+        </div>,
+        document.body
     );
 };
 

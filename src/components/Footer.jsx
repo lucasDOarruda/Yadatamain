@@ -22,6 +22,7 @@ const Footer = () => {
                         <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Platforms</h4>
                         <ul className="space-y-4 text-sm">
                             <li><a href="https://tinyglobalop.com" className="hover:text-white transition-colors">TinyGlobal</a></li>
+                            <li><a href="https://www.movingthings.com.au/" className="hover:text-white transition-colors">MovingThings</a></li>
                             <li><a href="http://spinncircle.com/" className="hover:text-white transition-colors">Spinn Circle</a></li>
                         </ul>
                     </div>

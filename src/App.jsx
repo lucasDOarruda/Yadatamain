@@ -17,7 +17,6 @@ function App() {
             <Route path="/founder" element={<Founder />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
   )

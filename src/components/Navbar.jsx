@@ -32,21 +32,18 @@ const Navbar = () => {
         setIsMenuOpen(false);
     }, [location]);
 
-    const scrollToSection = (e, id) => {
+    const jumpToStep = (e, index) => {
         setIsMenuOpen(false);
         if (isHome) {
             e.preventDefault();
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+            window.dispatchEvent(new CustomEvent('jumpToStep', { detail: { step: index } }));
         }
     };
 
     const navLinks = [
-        { name: 'About', path: '/#about', id: 'about' },
-        { name: 'Flagship', path: '/#flagship', id: 'flagship' },
-        { name: 'Vision', path: '/#vision', id: 'vision' },
+        { name: 'Core', path: '/', step: 1 },
+        { name: 'Platforms', path: '/', step: 2 },
+        { name: 'Vision', path: '/', step: 3 },
     ];
 
     return (
@@ -58,9 +55,9 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
-                            <Link to="/" onClick={() => setIsMenuOpen(false)} className="group flex items-center space-x-3">
+                            <Link to="/" onClick={(e) => jumpToStep(e, 0)} className="group flex items-center space-x-3">
                                 <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 group-hover:border-yadata-steel transition-colors">
-                                    <img src="/logo.png" alt="YADATA Logo" className="w-full h-full object-cover" />
+                                    <div className="w-full h-full bg-yadata-navy flex items-center justify-center text-white font-black text-xs">Y</div>
                                 </div>
                                 <span className="text-xl font-bold tracking-tight text-white">
                                     YADATA <span className="text-yadata-steel font-medium group-hover:text-yadata-blue transition-colors">GROUP</span>
@@ -75,7 +72,7 @@ const Navbar = () => {
                                     <Link
                                         key={link.name}
                                         to={link.path}
-                                        onClick={(e) => scrollToSection(e, link.id)}
+                                        onClick={(e) => jumpToStep(e, link.step)}
                                         className="relative text-gray-400 hover:text-white text-sm font-medium transition-colors group"
                                     >
                                         {link.name}
@@ -84,7 +81,7 @@ const Navbar = () => {
                                 ))}
                                 <Link
                                     to="/founder"
-                                    className={`text-sm font-medium transition-colors ${location.pathname === '/founder' ? 'text-white' : 'text-gray-400 hover:text-white'
+                                    className={`text-sm font-medium transition-colors px-4 py-2 border border-white/10 rounded-sm ${location.pathname === '/founder' ? 'bg-white text-yadata-navy' : 'text-gray-400 hover:text-white hover:border-white/20'
                                         }`}
                                 >
                                     The Founder
@@ -118,7 +115,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            {/* Better Mobile Menu Overlay (Full Screen Router-like feel) */}
+            {/* Mobile Menu Overlay */}
             <div className={`fixed inset-0 z-[60] bg-yadata-navy/98 backdrop-blur-3xl transition-all duration-500 md:hidden flex flex-col items-center justify-center ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}>
                 <div className="w-full max-w-xs mx-auto flex flex-col space-y-8">
@@ -126,7 +123,7 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             to={link.path}
-                            onClick={(e) => scrollToSection(e, link.id)}
+                            onClick={(e) => jumpToStep(e, link.step)}
                             className={`text-3xl font-bold tracking-[0.1em] text-white transition-all duration-500 delay-[${idx * 100}ms] ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}
                         >
@@ -156,9 +153,6 @@ const Navbar = () => {
                         </button>
                     </div>
                 </div>
-
-                {/* Decorative Pattern in Menu */}
-                <div className="absolute inset-0 bg-dot-grid opacity-5 pointer-events-none"></div>
             </div>
         </>
     );

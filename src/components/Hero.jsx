@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero = ({ onNext }) => {
     return (
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-yadata-navy">
             {/* Background Dot Grid */}
@@ -48,7 +48,10 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                        <button className="premium-button bg-white text-yadata-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest">
+                        <button 
+                            onClick={onNext}
+                            className="premium-button bg-white text-yadata-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest"
+                        >
                             Explore Our Platforms
                         </button>
                         <button

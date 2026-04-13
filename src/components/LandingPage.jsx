@@ -11,7 +11,6 @@ import PartnerWithUs from './PartnerWithUs';
 const LandingPage = () => {
     useScrollReveal();
     const [currentStep, setCurrentStep] = useState(0);
-    const [isPartnerModalOpen, setPartnerModalOpen] = useState(false);
 
     const steps = [
         { id: 'hero', component: <Hero onNext={() => setCurrentStep(1)} /> },
@@ -26,14 +25,11 @@ const LandingPage = () => {
                 setCurrentStep(e.detail.step);
             }
         };
-        const handleOpenPartner = () => setPartnerModalOpen(true);
 
         window.addEventListener('jumpToStep', handleJump);
-        window.addEventListener('openPartnerModal', handleOpenPartner);
 
         return () => {
             window.removeEventListener('jumpToStep', handleJump);
-            window.removeEventListener('openPartnerModal', handleOpenPartner);
         };
     }, []);
 
@@ -77,15 +73,6 @@ const LandingPage = () => {
                 ))}
             </div>
 
-            {/* Global Insight Buttons (Conditional) */}
-            {currentStep === 1 && (
-                <div className="fixed bottom-0 left-0 w-full z-40 bg-gradient-to-t from-yadata-navy to-transparent pt-12">
-                    <InsightButtons />
-                </div>
-            )}
-
-            {/* Partner With Us Modal Overlay */}
-            <PartnerWithUs isOpen={isPartnerModalOpen} onClose={() => setPartnerModalOpen(false)} />
         </div>
     );
 };

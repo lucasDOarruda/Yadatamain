@@ -1,3 +1,5 @@
+import React from 'react';
+import lucasPhoto from '../assets/IMG_1420.JPG';
 import Footer from './Footer';
 
 const Founder = () => {

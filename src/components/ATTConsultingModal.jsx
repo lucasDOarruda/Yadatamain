@@ -54,16 +54,17 @@ const ATTConsultingModal = ({ isOpen, onClose }) => {
 
     return (
         <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[100] p-4 transition-opacity duration-300"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-[200] p-4 transition-opacity duration-300"
             onClick={onClose}
         >
             <div
-                className="bg-[#0b1b2f] max-w-3xl w-full rounded-2xl p-6 md:p-10 border border-white/10 relative max-h-[90vh] overflow-y-auto animate-fade-in"
+                className="bg-[#0b1b2f] max-w-4xl w-full rounded-sm p-8 md:p-12 border border-white/10 relative max-h-[90vh] overflow-y-auto animate-fade-in shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors p-2"
+                    className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-4 z-50 bg-white/5 rounded-full"
+                    aria-label="Close modal"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

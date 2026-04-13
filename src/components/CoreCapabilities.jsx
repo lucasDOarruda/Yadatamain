@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import attIllustration from '../assets/images/att_consulting.png';
-import ATTConsultingModal from './ATTConsultingModal';
+import InsightButtons from './InsightButtons';
 
 const CoreCapabilities = ({ onNext, onBack }) => {
-    const [showATTModal, setShowATTModal] = useState(false);
-
     const softwareServices = [
         "Custom web applications",
         "Internal supply chain systems",
@@ -16,11 +14,11 @@ const CoreCapabilities = ({ onNext, onBack }) => {
     ];
 
     return (
-        <section id="capabilities" className="min-h-screen py-24 bg-yadata-navy text-white relative overflow-hidden flex flex-col justify-center">
+        <section id="capabilities" className="min-h-screen pt-32 pb-12 bg-yadata-navy text-white relative overflow-hidden flex flex-col">
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col">
                 <div className="text-center mb-16">
                     <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-yadata-steel mb-4">Core Capabilities</h2>
                     <h3 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
@@ -79,7 +77,7 @@ const CoreCapabilities = ({ onNext, onBack }) => {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button 
-                                onClick={() => setShowATTModal(true)}
+                                onClick={() => window.dispatchEvent(new Event('openATTModal'))}
                                 className="flex-1 px-8 py-4 bg-blue-600/20 text-blue-400 border border-blue-400/20 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all text-center"
                             >
                                 Learn More
@@ -88,8 +86,13 @@ const CoreCapabilities = ({ onNext, onBack }) => {
                     </div>
                 </div>
 
+                {/* Insight Highlights */}
+                <div className="mb-12">
+                    <InsightButtons />
+                </div>
+
                 {/* Navigation Row */}
-                <div className="flex justify-between items-center max-w-4xl mx-auto border-t border-white/5 pt-12">
+                <div className="mt-auto flex justify-between items-center max-w-4xl mx-auto border-t border-white/5 pt-12 pb-8">
                     <button onClick={onBack} className="flex items-center space-x-4 text-white/40 hover:text-white transition-colors group">
                         <span className="text-lg group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back</span>
@@ -101,10 +104,6 @@ const CoreCapabilities = ({ onNext, onBack }) => {
                 </div>
             </div>
 
-            <ATTConsultingModal
-                isOpen={showATTModal}
-                onClose={() => setShowATTModal(false)}
-            />
         </section>
     );
 };

@@ -42,8 +42,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Core', path: '/', step: 1 },
-        { name: 'Platforms', path: '/', step: 2 },
-        { name: 'Vision', path: '/', step: 3 },
+        { name: 'Vision', path: '/', step: 2 },
+        { name: 'Platforms', path: '/', step: 3 },
     ];
 
     return (
@@ -57,7 +57,7 @@ const Navbar = () => {
                         <div className="flex items-center">
                             <Link to="/" onClick={(e) => jumpToStep(e, 0)} className="group flex items-center space-x-3">
                                 <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 group-hover:border-yadata-steel transition-colors">
-                                    <div className="w-full h-full bg-yadata-navy flex items-center justify-center text-white font-black text-xs">Y</div>
+                                    <img src="/yadataicon.png" alt="Yadata" className="w-full h-full object-cover" />
                                 </div>
                                 <span className="text-xl font-bold tracking-tight text-white">
                                     YADATA <span className="text-yadata-steel font-medium group-hover:text-yadata-blue transition-colors">GROUP</span>

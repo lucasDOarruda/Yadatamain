@@ -1,149 +1,143 @@
-import React from 'react';
+import React, { useState } from 'react';
 import mtLogo from '../assets/images/moving_things_logo.png';
 import mtScreen from '../assets/images/moving_things_mobile_1.png';
-import tgLogo from '../assets/react.svg'; // Using react logo as placeholder if tg logo not found, or can use text
+import npLogo from '../assets/images/neighbourpaws_logo.png';
 
-const Platforms = ({ onNext, onBack }) => {
-    const platforms = [
-        {
-            id: 'tiny-global',
-            tag: 'Our Flagship',
-            name: 'TinyGlobal',
-            accent: 'text-yadata-steel',
-            bgAccent: 'bg-yadata-steel/5',
-            borderAccent: 'border-white/5',
-            description: 'Proprietary trade execution platform connecting commercial, logistics, and regulatory workflows.',
-            features: [
-                'Unified Operational Layer',
-                'Freight & Supply Chain Execution',
-                'Customs & Compliance Intelligence'
-            ],
-            link: 'https://tinyglobalop.com',
-            image: null
-        },
-        {
-            id: 'moving-things',
-            tag: 'The Marketplace',
-            name: 'MovingThings',
-            accent: 'text-purple-500',
-            bgAccent: 'bg-purple-500/5',
-            borderAccent: 'border-purple-500/10',
-            description: 'Premium removalist network & marketplace for verified professionals and moving clients.',
-            features: [
-                'Automated Quoting System',
-                'Verified Removalist Network',
-                'Escrow Payment Protection'
-            ],
-            link: 'https://www.movingthings.com.au/',
-            image: mtScreen,
-            logo: mtLogo
-        }
-    ];
+const platforms = [
+    {
+        id: 'tiny-global',
+        tag: 'Flagship',
+        name: 'TinyGlobal',
+        accent: 'text-yadata-steel',
+        tagColor: 'text-yadata-steel border-yadata-steel/30',
+        description: 'Proprietary trade execution platform connecting commercial, logistics, and regulatory workflows.',
+        tags: ['Trade Execution', 'Supply Chain', 'Compliance'],
+        link: 'https://tinyglobalop.com',
+        logo: null,
+        image: null,
+    },
+    {
+        id: 'moving-things',
+        tag: 'Platform',
+        name: 'MovingThings',
+        nameNode: <><span className="text-white">Moving</span><span className="text-purple-400">Things</span></>,
+        accent: 'text-purple-400',
+        tagColor: 'text-purple-400 border-purple-400/30',
+        description: "Connecting communities and movers across Australia. A platform built for people, not just professionals.",
+        tags: ['Platform', 'Community', 'Movers'],
+        link: 'https://www.movingthings.com.au/',
+        logo: mtLogo,
+        image: mtLogo,
+    },
+    {
+        id: 'neighbour-paws',
+        tag: 'Community',
+        name: 'NeighbourPaws',
+        accent: 'text-amber-400',
+        tagColor: 'text-amber-400 border-amber-400/30',
+        description: 'Helping communities and dog owners work together through awareness, prevention, and support.',
+        tags: ['Community', 'Dogs', 'Awareness'],
+        link: 'https://www.neighbourpaws.com.au/',
+        logo: npLogo,
+        image: npLogo,
+    },
+];
+
+const PlatformRow = ({ platform, index }) => {
+    const [hovered, setHovered] = useState(false);
 
     return (
-        <section id="platforms" className="min-h-screen py-24 bg-yadata-navy text-white relative overflow-hidden flex flex-col justify-center">
-            {/* Background Glows */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <a
+            href={platform.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className="group flex items-center gap-6 py-6 border-b border-white/5 hover:border-white/10 transition-all duration-300 cursor-pointer"
+        >
+            {/* Index */}
+            <span className="text-[10px] font-bold text-white/20 w-5 shrink-0 font-mono">
+                {String(index + 1).padStart(2, '0')}
+            </span>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-yadata-steel mb-4">Ecosystem Platforms</h2>
-                    <h3 className="text-4xl md:text-5xl font-black tracking-tight">Built for <span className="text-white/40">Execution.</span></h3>
+            {/* Thumbnail */}
+            <div className="w-14 h-14 shrink-0 rounded-md overflow-hidden bg-white/5 border border-white/8 flex items-center justify-center">
+                {platform.image ? (
+                    <img
+                        src={platform.image}
+                        alt={platform.name}
+                        className={`w-full h-full object-contain p-1.5 transition-all duration-500 ${hovered ? 'opacity-100' : 'opacity-50'}`}
+                    />
+                ) : (
+                    <span className={`text-[10px] font-black uppercase tracking-widest ${platform.accent} opacity-60`}>
+                        {platform.name.slice(0, 2)}
+                    </span>
+                )}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-1">
+                    <h4 className={`text-base font-bold tracking-tight text-white group-hover:${platform.accent.replace('text-', 'text-')} transition-colors`}>
+                        {platform.nameNode || platform.name}
+                    </h4>
+                    <span className={`text-[8px] font-black uppercase tracking-[0.2em] border px-2 py-0.5 rounded-sm ${platform.tagColor} opacity-60 group-hover:opacity-100 transition-opacity`}>
+                        {platform.tag}
+                    </span>
+                    <svg
+                        className={`w-3 h-3 ${platform.accent} opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-0.5 translate-x-0 group-hover:translate-x-0.5 group-hover:-translate-y-1 shrink-0`}
+                        fill="none" stroke="currentColor" strokeWidth="2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </div>
+                <p className="text-sm text-gray-500 font-light leading-snug truncate group-hover:text-gray-400 transition-colors">
+                    {platform.description}
+                </p>
+            </div>
+
+            {/* Tags */}
+            <div className="hidden md:flex items-center gap-2 shrink-0">
+                {platform.tags.map((t) => (
+                    <span key={t} className="text-[9px] font-bold uppercase tracking-widest text-white/25 group-hover:text-white/50 transition-colors">
+                        {t}
+                    </span>
+                ))}
+            </div>
+        </a>
+    );
+};
+
+const Platforms = ({ onBack }) => {
+    return (
+        <section id="platforms" className="min-h-screen py-24 bg-yadata-navy text-white relative overflow-hidden flex flex-col justify-center">
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-[140px] pointer-events-none" />
+
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                {/* Header */}
+                <div className="mb-12">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-yadata-steel mb-3">Ecosystem</p>
+                    <h3 className="text-4xl md:text-5xl font-black tracking-tight">
+                        Platforms <span className="text-white/20">we've built.</span>
+                    </h3>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 items-stretch mb-16">
-                    {platforms.map((platform) => (
-                        <div 
-                            key={platform.id} 
-                            className={`group relative p-8 md:p-12 rounded-sm border ${platform.borderAccent} bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] flex flex-col justify-between overflow-hidden`}
-                        >
-                            {/* Inner Glow */}
-                            <div className={`absolute -right-20 -bottom-20 w-64 h-64 ${platform.bgAccent} rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-
-                            <div>
-                                <div className="flex justify-between items-start mb-8">
-                                    <div className="px-3 py-1 rounded-sm bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] text-gray-500">
-                                        {platform.tag}
-                                    </div>
-                                    {platform.logo && <img src={platform.logo} alt="" className="w-8 h-8 rounded-sm opacity-60 group-hover:opacity-100 transition-opacity" />}
-                                </div>
-
-                                <h4 className="text-4xl font-bold mb-6 tracking-tight">
-                                    {platform.name === 'MovingThings' ? (
-                                        <>Moving<span className="text-purple-500">Things</span></>
-                                    ) : platform.name}
-                                </h4>
-
-                                <p className="text-gray-400 text-lg font-light leading-relaxed mb-10 max-w-md">
-                                    {platform.description}
-                                </p>
-
-                                <div className="space-y-4 mb-12">
-                                    {platform.features.map((feature, i) => (
-                                        <div key={i} className="flex items-center space-x-3 text-sm text-gray-300 font-light">
-                                            <span className={`w-1 h-1 rounded-full ${platform.name === 'MovingThings' ? 'bg-purple-500' : 'bg-yadata-steel'}`}></span>
-                                            <span>{feature}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row items-center justify-between gap-8 pt-8 border-t border-white/5">
-                                <a 
-                                    href={platform.link} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="premium-button text-[10px] font-bold uppercase tracking-[0.2em] flex items-center space-x-3 hover:text-white transition-colors"
-                                >
-                                    <span>Enter Platform</span>
-                                    <span>→</span>
-                                </a>
-
-                                {platform.image && (
-                                    <div className="relative h-20 overflow-hidden rounded-lg group-hover:h-32 transition-all duration-500 hidden sm:block">
-                                        <img 
-                                            src={platform.image} 
-                                            alt="" 
-                                            className="w-24 md:w-32 h-auto opacity-40 group-hover:opacity-80 transition-all duration-500"
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                {/* Platform list */}
+                <div className="mb-16">
+                    {platforms.map((platform, i) => (
+                        <PlatformRow key={platform.id} platform={platform} index={i} />
                     ))}
                 </div>
 
-                {/* Navigation Row */}
-                <div className="flex justify-between items-center max-w-4xl mx-auto border-t border-white/5 pt-12">
-                    <button onClick={onBack} className="flex items-center space-x-4 text-white/40 hover:text-white transition-colors group">
-                        <span className="text-lg group-hover:-translate-x-1 transition-transform">←</span>
+                {/* Navigation */}
+                <div className="flex justify-start items-center border-t border-white/5 pt-10">
+                    <button onClick={onBack} className="flex items-center space-x-3 text-white/30 hover:text-white transition-colors group">
+                        <span className="group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back</span>
-                    </button>
-                    <button onClick={onNext} className="flex items-center space-x-4 text-yadata-cyan hover:text-white transition-colors group">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Next: Vision</span>
-                        <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </div>
             </div>
-
-            <style jsx>{`
-                .premium-button {
-                    position: relative;
-                }
-                .premium-button::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -2px;
-                    left: 0;
-                    width: 0;
-                    height: 1px;
-                    background: currentColor;
-                    transition: width 0.3s ease;
-                }
-                .premium-button:hover::after {
-                    width: 100%;
-                }
-            `}</style>
         </section>
     );
 };

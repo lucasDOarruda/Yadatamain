@@ -15,8 +15,8 @@ const LandingPage = () => {
     const steps = [
         { id: 'hero', component: <Hero onNext={() => setCurrentStep(1)} /> },
         { id: 'capabilities', component: <CoreCapabilities onNext={() => setCurrentStep(2)} onBack={() => setCurrentStep(0)} /> },
-        { id: 'platforms', component: <Platforms onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} /> },
-        { id: 'vision', component: <Vision onBack={() => setCurrentStep(2)} /> }
+        { id: 'vision', component: <Vision onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} /> },
+        { id: 'platforms', component: <Platforms onBack={() => setCurrentStep(2)} /> }
     ];
 
     useEffect(() => {
@@ -35,28 +35,28 @@ const LandingPage = () => {
 
     // Scroll to top on step change
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [currentStep]);
 
     return (
-        <div className="bg-yadata-navy min-h-screen relative overflow-hidden">
+        <div className="bg-yadata-navy relative" style={{ overflowX: 'hidden' }}>
             {/* Main Stage */}
-            <div 
-                className="flex transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) h-full"
-                style={{ transform: `translateX(-${currentStep * 100}vw)`, width: `${steps.length * 100}vw`, display: 'flex' }}
+            <div
+                className="flex transition-transform duration-700"
+                style={{ transform: `translateX(-${currentStep * 100}vw)`, width: `${steps.length * 100}vw` }}
             >
                 {steps.map((step, index) => (
-                    <div 
-                        key={step.id} 
-                        className="flex-shrink-0 min-h-0 relative"
+                    <div
+                        key={step.id}
+                        className="relative"
                         style={{ width: '100vw' }}
                     >
                         {/* Step Indicator */}
                         <div className="absolute top-32 left-8 z-50 flex items-center space-x-4">
                             <div className="flex space-x-1">
                                 {steps.map((_, i) => (
-                                    <div 
-                                        key={i} 
+                                    <div
+                                        key={i}
                                         className={`w-8 h-1 transition-all duration-500 ${i === currentStep ? 'bg-white' : 'bg-white/10'}`}
                                     ></div>
                                 ))}
@@ -66,13 +66,12 @@ const LandingPage = () => {
                             </span>
                         </div>
 
-                        <div className="pt-20 lg:pt-0 h-full">
+                        <div className="pt-20 lg:pt-0">
                             {step.component}
                         </div>
                     </div>
                 ))}
             </div>
-
         </div>
     );
 };

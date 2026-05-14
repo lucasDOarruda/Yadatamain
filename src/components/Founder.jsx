@@ -2,62 +2,122 @@ import React from 'react';
 import lucasPhoto from '../assets/IMG_1420.JPG';
 import Footer from './Footer';
 
+const focusAreas = [
+    'Logistics & operational systems',
+    'Community-first platform design',
+    'Workflow automation',
+    'Marketplace infrastructure',
+    'Supply chain and trade operations',
+    'Low-cost scalable technology',
+    'Social and operational applications',
+    'Transparent governance models',
+];
+
 const Founder = () => {
     return (
-        <section id="founder" className="min-h-screen bg-yadata-navy text-white relative overflow-hidden flex flex-col">
-            {/* Background Decor */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-yadata-blue/5 rounded-full blur-3xl opacity-30"></div>
+        <section id="founder" className="bg-yadata-navy text-white relative">
 
-            <div className="flex-1 flex flex-col justify-center pt-32 pb-24">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        {/* Photo Side */}
-                        <div className="lg:w-1/3 flex justify-center">
+            {/* Hero */}
+            <div className="min-h-screen flex flex-col justify-center pt-28 pb-16 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-yadata-blue/5 rounded-full blur-[140px] pointer-events-none" />
+
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                    <div className="flex flex-col lg:flex-row gap-16 items-start">
+
+                        {/* Photo */}
+                        <div className="lg:w-72 shrink-0 flex flex-col items-center lg:items-start gap-6">
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-gradient-to-tr from-yadata-blue to-yadata-cyan rounded-full opacity-20 group-hover:opacity-40 transition-opacity blur-xl"></div>
-                                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                                <div className="absolute -inset-3 bg-gradient-to-tr from-yadata-blue/20 to-yadata-cyan/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border border-white/10 shadow-2xl">
                                     <img
                                         src={lucasPhoto}
                                         alt="Lucas Arruda"
-                                        className="w-full h-full object-cover transition-all duration-700"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="absolute -bottom-4 -right-4 bg-yadata-blue text-white px-6 py-2 rounded-full font-bold text-sm shadow-xl">
-                                    Founder & MD
-                                </div>
+                            </div>
+                            <div>
+                                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-yadata-steel mb-1">The Founder</p>
+                                <h1 className="text-3xl font-black">Lucas Arruda</h1>
+                                <p className="text-yadata-cyan text-sm font-medium mt-1">Founder & Managing Director</p>
                             </div>
                         </div>
 
-                        {/* Content Side */}
-                        <div className="lg:w-2/3">
-                            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-yadata-cyan mb-4">The Founder</h2>
-                            <h3 className="text-4xl md:text-5xl font-black mb-8">Lucas Arruda</h3>
+                        {/* Intro */}
+                        <div className="flex-1 space-y-6 text-gray-300 font-light leading-relaxed">
+                            <p className="text-lg md:text-xl text-white/80">
+                                Lucas Arruda is an Australian technology founder, logistics operator, and community-focused builder creating practical digital infrastructure that supports real operational and social environments.
+                            </p>
+                            <p>
+                                As the Founder and Managing Director of Yadata, Lucas combines hands-on experience in logistics, supply chain operations, removals, workforce coordination, and technology development to design platforms that solve everyday operational problems — without unnecessary complexity or inflated costs.
+                            </p>
+                            <p>
+                                His background spans global logistics coordination, warehouse and transport operations, workflow management, and full-stack platform development — giving him a unique <span className="text-white">operational-first approach</span> to technology implementation.
+                            </p>
+                            <p>
+                                Rather than building software purely around trends or hype, Lucas focuses on creating sustainable systems that improve transparency, accessibility, and community participation across industries.
+                            </p>
 
-                            <div className="space-y-6 text-lg text-gray-300 leading-relaxed font-medium">
-                                <p>
-                                    Lucas Arruda is an Australian technology founder and infrastructure builder focused on designing integrated systems for trade and commerce.
-                                </p>
-                                <p>
-                                    He is the Founder and Managing Director of Yadata Pty Ltd, where he leads the development of infrastructure-grade digital platforms that connect commercial, logistics, and regulatory workflows into unified execution environments.
-                                </p>
-                                <p className="italic border-l-2 border-yadata-blue pl-6 py-1 text-white/90">
-                                    Lucas specialises in enterprise systems architecture, operational workflow design, and cloud-based platform infrastructure. His work centres on solving structural inefficiencies across industries by embedding technology directly into real-world operational processes.
-                                </p>
-                                <p>
-                                    Through Yadata’s flagship platform, TinyGlobal, he is developing a unified trade execution infrastructure designed to support modern supply chain and trade environments. His approach prioritises durable system design, integration depth, and long-term scalability over surface-level applications.
-                                </p>
-                                <p>
-                                    Lucas operates with a builder’s mindset — focused on creating foundational platforms that serve as operational backbones for industries rather than standalone tools.
-                                </p>
-                                <p>
-                                    His long-term vision is to establish Australian-origin infrastructure platforms that scale globally and redefine how trade and digital commerce systems are executed.
-                                </p>
-                            </div>
+                            {/* Quote */}
+                            <blockquote className="border-l-2 border-yadata-blue pl-6 py-2 text-white/90 italic text-lg">
+                                "Technology should reduce friction for people and businesses — not create more layers, subscriptions, and complexity."
+                            </blockquote>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
+            {/* Platforms */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+                <div className="border-t border-white/5 pt-20 mb-20">
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-yadata-steel mb-10">Community Platforms</p>
+                    <p className="text-gray-400 font-light leading-relaxed max-w-3xl mb-10">
+                        Lucas leads the development of Yadata's community-driven platforms, with major financial and platform-impacting decisions intended to involve direct feedback and voting from platform users themselves.
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="p-8 border border-purple-500/15 bg-purple-500/5 rounded-sm">
+                            <h3 className="text-lg font-bold mb-3">
+                                Moving<span className="text-purple-400">Things</span>
+                            </h3>
+                            <p className="text-gray-400 font-light text-sm leading-relaxed">
+                                A low-cost moving and logistics marketplace designed to help movers retain more of their earnings while simplifying operational workflows for clients and operators.
+                            </p>
+                        </div>
+                        <div className="p-8 border border-amber-400/15 bg-amber-400/5 rounded-sm">
+                            <h3 className="text-lg font-bold mb-3">
+                                <span className="text-amber-400">Neighbour</span>Paws
+                            </h3>
+                            <p className="text-gray-400 font-light text-sm leading-relaxed">
+                                A social-community platform focused on improving relationships between neighbours and pet owners through preventative care, alerts, and local support systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Core Focus Areas */}
+                <div className="border-t border-white/5 pt-20 mb-20">
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-yadata-steel mb-10">Core Focus Areas</p>
+                    <div className="grid sm:grid-cols-2 gap-0">
+                        {focusAreas.map((area, i) => (
+                            <div key={i} className="flex items-center gap-5 py-4 border-b border-white/5 group">
+                                <span className="text-[9px] font-mono text-white/20 w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                                <span className="text-sm text-white/60 group-hover:text-white transition-colors font-light">{area}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Philosophy */}
+                <div className="border-t border-white/5 pt-20 text-center">
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-yadata-steel mb-10">Philosophy</p>
+                    <div className="space-y-4">
+                        <p className="text-2xl md:text-3xl font-black text-white/80">Less hype. <span className="text-white">More operational value.</span></p>
+                        <p className="text-2xl md:text-3xl font-black text-white/80">Less corporate overhead. <span className="text-white">More community ownership.</span></p>
+                        <p className="text-lg text-gray-500 font-light mt-6 italic">Built with the people using the platform every day.</p>
+                    </div>
+                </div>
+            </div>
+
             <Footer />
         </section>
     );

@@ -36,7 +36,7 @@ const Hero = ({ onNext }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
                     <div className="reveal active">
                         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-yadata-steel/10 border border-yadata-steel/20 mb-8">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-yadata-steel">Operational Technology for Trade</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-yadata-steel">Community-Driven Technology · Australia</span>
                         </div>
 
                         <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
@@ -46,7 +46,7 @@ const Hero = ({ onNext }) => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl font-light">
-                            We build platforms that put community first. Our goal is to keep technology simple, affordable, and fair — serving as mediators between practical solutions and client needs. We're committed to protecting users from overhyped or overpriced tech, empowering them with community-driven, low-cost solutions that everyone has a say in.
+                            We build practical, community-focused technology that helps businesses, operators, and everyday people work smarter without unnecessary complexity or inflated costs. Yadata combines operational expertise with modern software development to create fair, low-cost platforms designed around real-world needs — not corporate hype.
                         </p>
 
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">

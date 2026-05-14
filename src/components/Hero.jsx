@@ -46,7 +46,7 @@ const Hero = ({ onNext }) => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl font-light">
-                            We design and build custom software, platforms, and operational systems that power imports, exports, logistics, and modern startups.
+                            We build platforms that put community first. Our goal is to keep technology simple, affordable, and fair — serving as mediators between practical solutions and client needs. We're committed to protecting users from overhyped or overpriced tech, empowering them with community-driven, low-cost solutions that everyone has a say in.
                         </p>
 
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
@@ -57,10 +57,10 @@ const Hero = ({ onNext }) => {
                                 Explore Our Platforms
                             </button>
                             <button
-                                onClick={() => window.dispatchEvent(new Event('openPartnerModal'))}
+                                onClick={() => window.dispatchEvent(new CustomEvent('jumpToStep', { detail: { step: 3 } }))}
                                 className="premium-button bg-transparent text-white border border-white/10 hover:border-white/20 px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest text-center"
                             >
-                                Partner With Us
+                                Our Vision
                             </button>
                         </div>
                     </div>

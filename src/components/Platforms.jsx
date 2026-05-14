@@ -109,7 +109,7 @@ const PlatformRow = ({ platform, index }) => {
     );
 };
 
-const Platforms = ({ onBack }) => {
+const Platforms = ({ onNext, onBack }) => {
     return (
         <section id="platforms" className="min-h-screen py-24 bg-yadata-navy text-white relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-[140px] pointer-events-none" />
@@ -131,10 +131,14 @@ const Platforms = ({ onBack }) => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex justify-start items-center border-t border-white/5 pt-10">
+                <div className="flex justify-between items-center border-t border-white/5 pt-10">
                     <button onClick={onBack} className="flex items-center space-x-3 text-white/30 hover:text-white transition-colors group">
                         <span className="group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back</span>
+                    </button>
+                    <button onClick={onNext} className="flex items-center space-x-3 text-yadata-cyan hover:text-white transition-colors group">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Next: Vision</span>
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </div>
             </div>

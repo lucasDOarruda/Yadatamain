@@ -15,8 +15,8 @@ const LandingPage = () => {
     const steps = [
         { id: 'hero', component: <Hero onNext={() => setCurrentStep(1)} /> },
         { id: 'capabilities', component: <CoreCapabilities onNext={() => setCurrentStep(2)} onBack={() => setCurrentStep(0)} /> },
-        { id: 'vision', component: <Vision onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} /> },
-        { id: 'platforms', component: <Platforms onBack={() => setCurrentStep(2)} /> }
+        { id: 'platforms', component: <Platforms onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} /> },
+        { id: 'vision', component: <Vision onBack={() => setCurrentStep(2)} /> }
     ];
 
     useEffect(() => {

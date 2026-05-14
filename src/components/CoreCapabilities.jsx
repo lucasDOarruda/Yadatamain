@@ -92,14 +92,14 @@ const CoreCapabilities = ({ onNext, onBack }) => {
                 </div>
 
                 {/* Navigation Row */}
-                <div className="mt-auto flex justify-between items-center max-w-4xl mx-auto border-t border-white/5 pt-12 pb-8">
+                <div className="mt-auto flex justify-between items-center border-t border-white/5 pt-12 pb-8 w-full">
                     <button onClick={onBack} className="flex items-center space-x-4 text-white/40 hover:text-white transition-colors group">
-                        <span className="text-lg group-hover:-translate-x-1 transition-transform">←</span>
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back</span>
+                        <span className="text-2xl group-hover:-translate-x-1 transition-transform">←</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.3em]">Back</span>
                     </button>
                     <button onClick={onNext} className="flex items-center space-x-4 text-yadata-steel hover:text-white transition-colors group">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Next: Ecosystem Platforms</span>
-                        <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.3em]">Next: Ecosystem Platforms</span>
+                        <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import Footer from './Footer';
 
-const Vision = ({ onNext, onBack }) => {
+const Vision = ({ onBack }) => {
     const values = [
         'Community before corporate hype',
         'Fair operational systems',
@@ -106,14 +106,10 @@ const Vision = ({ onNext, onBack }) => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex justify-between items-center border-t border-white/5 pt-12">
+                <div className="flex justify-start items-center border-t border-white/5 pt-12">
                     <button onClick={onBack} className="flex items-center space-x-3 text-white/30 hover:text-white transition-colors group">
                         <span className="group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back</span>
-                    </button>
-                    <button onClick={onNext} className="flex items-center space-x-3 text-yadata-cyan hover:text-white transition-colors group">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Next: Platforms</span>
-                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </div>
             </div>

@@ -42,8 +42,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Core', path: '/', step: 1 },
-        { name: 'Vision', path: '/', step: 2 },
-        { name: 'Platforms', path: '/', step: 3 },
+        { name: 'Platforms', path: '/', step: 2 },
+        { name: 'Vision', path: '/', step: 3 },
     ];
 
     return (
